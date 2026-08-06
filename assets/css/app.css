@@ -1,0 +1,78 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;
+  background-color: #f8f9fa;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #eff3ff 0%, #f8f9fc 100%);
+}
+
+.app-section {
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.app-section.d-none {
+  display: none !important;
+}
+
+.card {
+  border-radius: 32px;
+}
+
+.btn-link {
+  text-decoration: none;
+}
+
+#formAlert .alert {
+  border-radius: 16px;
+}
+
+.certificate-preview {
+  max-width: 100%;
+}
+
+.certificate-card {
+  border-radius: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+}
+
+.certificate-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.certificate-field {
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 16px;
+}
+
+.field-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #495057;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.field-value {
+  font-size: 1rem;
+  color: #212529;
+}
+
+.certificate-signature {
+  margin-top: 2rem;
+}
+
+.signature-name {
+  font-weight: 700;
+}
+
+.signature-title {
+  color: #6c757d;
+}

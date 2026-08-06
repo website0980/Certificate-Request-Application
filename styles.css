@@ -1,0 +1,527 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f3f4f6;
+  color: #111827;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:1rem;
+  background: linear-gradient(180deg, #eef2ff 0%, #f8fafc 100%);
+}
+
+.page, .admin-page, .preview-page{
+  width:100%;
+  max-width:900px;
+}
+
+.card{
+  background:#ffffff;
+  border:1px solid #d1d5db;
+  border-radius:18px;
+  padding:2rem;
+  box-shadow:0 24px 50px rgba(15,23,42,.08);
+}
+
+.certificate-preview .card{
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+h1{
+  font-size:2rem;
+  margin:0 0 0.5rem;
+}
+
+p{
+  margin:0 0 1rem;
+  line-height:1.6;
+}
+
+label{
+  display:block;
+  margin:1rem 0 0.4rem;
+  font-weight:600;
+}
+
+input, textarea{
+  width:100%;
+  border:1px solid #cbd5e1;
+  background:#f8fafc;
+  border-radius:12px;
+  padding:0.95rem 1rem;
+  font-size:1rem;
+  color:#111827;
+}
+
+textarea{
+  resize:vertical;
+}
+
+.primary-button{
+  margin-top:1.5rem;
+  width:100%;
+  border:none;
+  border-radius:14px;
+  padding:1rem;
+  background:#4f46e5;
+  color:#ffffff;
+  font-size:1rem;
+  cursor:pointer;
+}
+
+.primary-button:hover{
+  background:#4338ca;
+}
+
+.hidden{
+  display:none;
+}
+
+.submission-list{
+  display:grid;
+  gap:1rem;
+}
+
+.submission-item{
+  border:1px solid #e5e7eb;
+  border-radius:14px;
+  padding:1rem;
+  background:#fafafa;
+}
+
+.submission-item h2{
+  margin:0 0 0.5rem;
+  font-size:1.05rem;
+}
+
+.submission-item p{
+  margin:0.25rem 0;
+}
+
+.button-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.75rem;
+  margin-top:1rem;
+}
+
+.secondary-button{
+  border:none;
+  border-radius:14px;
+  padding:1rem 1.25rem;
+  background:#e5e7eb;
+  color:#111827;
+  font-size:1rem;
+  cursor:pointer;
+}
+
+.secondary-button:hover{
+  background:#d1d5db;
+}
+
+.submission-item button{
+  margin-top:0.75rem;
+  width:auto;
+}
+
+.preview-header{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  gap:1rem;
+  align-items:center;
+}
+
+.print-sheet{
+  margin-top:1.5rem;
+}
+
+.certificate-copy{
+  border:2px solid rgba(0,0,0,0.14);
+  border-radius:22px;
+  margin-bottom:1.8rem;
+  min-height:7.5in;
+  background: #f7e5a3;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.certificate-copy::before,
+.certificate-copy::after{
+  content: '';
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(25, 90, 57, 0.95), rgba(82, 147, 96, 0.95));
+  z-index: 0;
+}
+
+.certificate-copy::before{
+  top: -120px;
+  left: -120px;
+}
+
+.certificate-copy::after{
+  bottom: -120px;
+  right: -120px;
+  background: linear-gradient(225deg, rgba(25, 90, 57, 0.95), rgba(82, 147, 96, 0.95));
+}
+
+.certificate-bg-top{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:68px;
+  background: linear-gradient(90deg, #f4cf5a 0%, #f4cf5a 100%);
+  z-index:0;
+}
+
+.certificate-bg-top::after{
+  content:'';
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:10px;
+  background: repeating-linear-gradient(90deg, #c8602d 0, #c8602d 16px, transparent 16px, transparent 24px);
+}
+
+.certificate-bg-bottom{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  height:48px;
+  background: linear-gradient(90deg, #cb341f 0%, #cb341f 100%);
+  z-index:0;
+}
+
+.certificate-bg-bottom::after{
+  content:'';
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  height:10px;
+  background: repeating-linear-gradient(90deg, #f0d67c 0, #f0d67c 16px, transparent 16px, transparent 24px);
+}
+
+.certificate-content{
+  position: relative;
+  z-index: 1;
+  padding: 1.5rem 1.5rem 1.75rem;
+}
+
+.certificate-top-bar{
+  display:flex;
+  justify-content:flex-start;
+  padding-bottom:1rem;
+}
+
+.certificate-control{
+  font-size:0.95rem;
+  color:#1f2720;
+  font-weight:700;
+}
+
+.certificate-logo-row{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:1.25rem;
+  flex-wrap:wrap;
+  margin-bottom:0.8rem;
+}
+
+.certificate-logo{
+  width:96px;
+  height:96px;
+  background:#fff;
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  border:1px solid rgba(0,0,0,0.1);
+}
+
+.logo-left{
+  background: radial-gradient(circle at 30% 30%, #ffe06f 0%, #f7b139 50%, #cd841f 100%);
+}
+
+.logo-right{
+  background: radial-gradient(circle at 30% 30%, #a9d4a9 0%, #6ab57f 55%, #2e6f49 100%);
+}
+
+.certificate-title{
+  width:100%;
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 900;
+  text-align:center;
+  color: #141313;
+  padding: 0 1rem;
+}
+
+.certificate-heading{
+  margin: 0;
+  font-weight:700;
+  font-size:1rem;
+  color:#1b1b1b;
+  padding: 0 1rem;
+  text-align:left;
+}
+
+.certificate-text{
+  margin: 0.65rem 0 1.15rem;
+  padding: 0 1rem;
+  line-height:1.75;
+  color:#1f1f1f;
+}
+
+.certificate-form{
+  display:grid;
+  gap: 0.95rem;
+  padding: 0 1rem;
+}
+
+.certificate-field{
+  display:flex;
+  align-items:center;
+  border: 2px solid #111;
+  border-radius: 10px;
+  padding: 1rem 1rem;
+  min-height: 4rem;
+  background: rgba(255,255,255,0.96);
+}
+
+.field-label{
+  width: 140px;
+  font-weight: 700;
+  color: #1d1d1d;
+}
+
+.field-value{
+  flex: 1;
+  color: #111827;
+  font-weight: 600;
+}
+
+.certificate-signature{
+  margin-top: 2.4rem;
+  text-align:center;
+  line-height:1.1;
+  padding: 0 1rem 0;
+}
+
+.signature-name{
+  font-family: 'Brush Script MT', cursive;
+  font-size:1.8rem;
+  display:block;
+  color:#1b1b1b;
+}
+
+.signature-title{
+  margin-top: 0.45rem;
+  font-size: 0.95rem;
+  color: #1f1f1f;
+  font-weight: 600;
+}
+
+.certificate-copy .preview-content {
+  position: relative;
+  z-index: 1;
+}
+
+@media print {
+  body{
+    background:#ffffff;
+    padding:0;
+  }
+
+  .card, .paper-copy, .certificate-copy{
+    box-shadow:none;
+    border:none;
+    margin:0;
+    width:100%;
+  }
+
+  .card{
+    padding:0;
+  }
+
+  .primary-button, .preview-header button{
+    display:none;
+  }
+}
+
+@media print {
+  body{
+    background:#ffffff;
+    padding:0;
+  }
+
+  .card, .paper-copy{
+    box-shadow:none;
+    border:none;
+    margin:0;
+    width:100%;
+  }
+
+  .card{
+    padding:0;
+  }
+
+  .certificate-copy{
+    box-shadow:none;
+    page-break-inside:avoid;
+    border:none;
+  }
+
+  .primary-button, .preview-header button{
+    display:none;
+  }
+}
+
+.certificate-top-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1rem;
+  margin-bottom:1rem;
+}
+
+.certificate-control{
+  font-size:0.95rem;
+  color:#2d2b1f;
+  font-weight:700;
+}
+
+.certificate-logos{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:0.75rem;
+}
+
+.logo-block{
+  width:96px;
+  height:96px;
+  border-radius:18px;
+  background: #f8f1d4;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.logo-left{
+  background: radial-gradient(circle at 35% 35%, #ffcb05, #f97316);
+}
+
+.logo-right{
+  background: radial-gradient(circle at 35% 35%, #10b981, #3b82f6);
+}
+
+.certificate-main-title{
+  text-align:center;
+  max-width:420px;
+}
+
+.certificate-title{
+  font-size:2rem;
+  font-weight:800;
+  color:#1f2937;
+  line-height:1.1;
+}
+
+.certificate-heading{
+  margin:0;
+  font-size:1rem;
+  font-weight:700;
+  color:#1f2937;
+}
+
+.certificate-text{
+  margin:0.75rem 0 1.5rem;
+  line-height:1.8;
+  color:#333333;
+}
+
+.certificate-entry{
+  display:grid;
+  grid-template-columns:140px 1fr;
+  gap:0.75rem;
+  align-items:start;
+  margin-bottom:0.9rem;
+}
+
+.field-label{
+  font-weight:700;
+  color:#1f2937;
+}
+
+.field-value{
+  min-height:2rem;
+  padding:0.9rem 1.1rem;
+  border:2px solid #3f3b2f;
+  border-radius:8px;
+  background: rgba(255,255,255,0.86);
+  color:#111827;
+  font-weight:600;
+}
+
+.certificate-signature{
+  margin-top:2rem;
+  display:flex;
+  flex-direction:column;
+  gap:0.2rem;
+  color:#1f2937;
+}
+
+.signature-name{
+  font-family: 'Brush Script MT', cursive;
+  font-size:1.4rem;
+}
+
+.signature-title{
+  font-size:0.92rem;
+  color:#4b5563;
+  font-weight:500;
+}
+
+@media print {
+  body{
+    background:#ffffff;
+    padding:0;
+  }
+
+  .card, .paper-copy{
+    box-shadow:none;
+    border:none;
+    margin:0;
+    width:100%;
+  }
+
+  .paper-copy{
+    page-break-inside:avoid;
+    min-height:7in;
+    border:1px solid #000;
+  }
+
+  .primary-button, .preview-header button{
+    display:none;
+  }
+}
